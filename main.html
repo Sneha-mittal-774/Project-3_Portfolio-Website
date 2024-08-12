@@ -24,7 +24,7 @@
             <i class="fa-solid fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
-            <p>Cloud Computing</p>
+            <p>Cloud Computing Intern</p>
             <h1>
             Hi, I'm <span>Sneha Mittal</span><br> from Jaipur
             </h1>
@@ -123,9 +123,35 @@
     <div class="container">
         <h1 class="sub-title">My Work</h1>
         <div class="work-list">
+
             <div class="work">
-                <img src="">
+               <img src="crms(ss).png">
+               <div class="layer">
+                    <h3>CRMS(Campus Recuritment Management System) Image</h3>
+                    <p>A Campus Recruitment Management System connects students, colleges, and companies to efficiently manage job placements and recruitment processes.</p>
+               </div>
             </div>
+
+            <div class="work">
+               <video controls>
+                <source src="crms.mp4" type="crms/mp4">
+               </video>
+               <div class="layer">
+                <h3>CRMS(Campus Recuritment Management System) Video</h3>
+                <p>A Campus Recruitment Management System connects students, colleges, and companies to efficiently manage job placements and recruitment processes.</p>
+               
+                 </div>
+            </div>
+
+            <div class="work">  
+               <img src ="crms(ss2).png">
+               <div class="layer">
+                <h3>CRMS(Campus Recuritment Management System) Image</h3>
+                <p>A Campus Recruitment Management System connects students, colleges, and companies to efficiently manage job placements and recruitment processes.</p>
+               
+           </div>
+            </div>
+
         </div>
     </div>
   </div>
@@ -146,7 +172,7 @@
                     <a href="https://www.linkedin.com/in/sneha-mittal-b2b967212/"><i class="fa-brands fa-linkedin"></i></a>
                     <a href=""><i class="fa-brands fa-telegram"></i></a>
                 </div>
-                <a href="" download class="btn btn2">Download Cv</a>
+                <a href="Sneha_Mittal_cv_7323 (1).pdf" download class="btn btn2">Download Cv</a>
             </div>
             <div class="contact-right">
                 <form name="submit-to-google-sheet">
@@ -155,6 +181,7 @@
                     <textarea type="Message" rows="6" placeholder="Your Message"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
+                <span id="msg"</span>
             </div>
         </div>
     </div>
@@ -195,13 +222,20 @@
   </form>-->
   
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyNuC6qREYYneDInsxJnKiUuND4mEkfUcl9fB6kBmluXR4OcTxRTmKWjd1zVY5BPKnMZw/exec'
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz9_3vBTZtWc1xDxYl8WdKywtP7G2vPi_4WprgwXZM3O-cq6SSBvWDjQ_MxRtb1drZ05Q/exec'
     const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
   
     form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
+        .then(response => {
+            msg.innerHTML="Message sent Successfully"
+            setTimeout(function(){
+                msg.innerHTML=""
+            },5000)
+            form.reset()
+        })
         .catch(error => console.error('Error!', error.message))
     })
   </script>
